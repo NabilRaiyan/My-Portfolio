@@ -1,4 +1,7 @@
 
+
+
+// Creating Home page
 export default function Home() {
   return (
     <main className="relative bg-black-100 text-white flex justify-center 
