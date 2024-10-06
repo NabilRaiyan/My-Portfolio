@@ -42,43 +42,49 @@ export const BentoGridItem = ({
 }) => {
   return (
     <div
-      className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
-        className
-      )}
-      style={{
-        background: 'rgb(4, 7, 29)',
-        backgroundColor: 'linear-gradient(90deg, rgba(4, 7, 29,1) 0%, rgba(12, 14, 35,1) 5%, rgba(12, 14, 35,1) 100%)'
-      }}
-    >
-        {/* Images */}
-        <div className={`${id === 6} && flex justify-center h-full`}>
-            <div className="w-full h-full relative">
-                {img && 
-                    <img src={img} alt={img} className={cn(imgClassName, 'object-cover, object-center')} />
-                }
+        className={cn(
+            // remove p-4 rounded-3xl dark:bg-black dark:border-white/[0.2] bg-white  border border-transparent, add border border-white/[0.1] overflow-hidden relative
+            "row-span-1 relative overflow-hidden rounded-3xl border border-white/[0.1] group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none justify-between flex flex-col space-y-4",
+            className
+        )}
+        style={{
+            //   add these two
+            //   you can generate the color from here https://cssgradient.io/
+            background: "rgb(4,7,29)",
+            backgroundColor:
+            "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+        }}
+        >
+        {/* add img divs */}
+        <div className={`${id === 6 && "flex justify-center"} h-full`}>
+            <div className="w-full h-full absolute">
+            {img && (
+                <img
+                src={img}
+                alt={img}
+                className={cn(imgClassName, "object-cover object-center ")}
+                />
+            )}
             </div>
-
-            <div className={`relative right-0 -bottom-5 ${id === 5 && 'w-full opacity-80'}`}>
-                {
-                    spareImg && 
-                    <img src={spareImg} alt={spareImg} className={'object-cover, object-center w-full h-full'} />
-
-                }
+            <div
+                className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
+                    } `}
+            >
+            {spareImg && (
+                <img
+                src={spareImg}
+                alt={spareImg}
+                //   width={220}
+                className="object-cover object-center w-full h-full"
+                />
+            )}
             </div>
-
-            {
-                id === 6 && (
-                    <BackgroundGradientAnimation>
-                        <div className="relative font-bold items-center 
-                                        justify-center text-white flex z-50">
-
-                        </div>
-                    </BackgroundGradientAnimation>
-                )
-            }
-
-            
+            {id === 6 && (
+            // add background animation , remove the p tag
+            <BackgroundGradientAnimation>
+                <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
+            </BackgroundGradientAnimation>
+            )}
         </div>
 
 
@@ -93,7 +99,7 @@ export const BentoGridItem = ({
             </div>
             
             <div
-                className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
+                className={"font-sans text-lg lg:text-3xl max-w-96 font-bold z-10"}
             >
                 {title}
             </div>
