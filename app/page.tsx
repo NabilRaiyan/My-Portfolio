@@ -1,3 +1,7 @@
+// until 1 hr 14 min
+// link: https://www.youtube.com/watch?v=FTH6Dn3AyIQ
+
+
 import Grid from "@/components/Grid";
 import Hero from "@/components/Hero";
 import { FloatingNav } from "@/components/ui/FloatingNav";
