@@ -4,6 +4,29 @@ export const navItems = [
     { name: "Testimonials", link: "#testimonials" },
     { name: "Contact", link: "#contact" },
   ];
+
+  export const techStackItems = [
+    {
+      id: 1,
+      name: 'React.js'
+    },
+    {
+      id: 2,
+      name: 'Next.js'
+    },
+    {
+      id: 3,
+      name: 'Nest.js'
+    },
+    {
+      id: 4,
+      name: 'Express.js'
+    },
+    {
+      id: 5,
+      name: 'Laravel'
+    },
+  ]
   
   export const gridItems = [
     {
