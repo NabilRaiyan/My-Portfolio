@@ -5,10 +5,10 @@ export const navItems = [
     { name: "Contact", link: "#contact" },
   ];
 
-  export const techStackItems = [
+  export const leftLists = [
     {
       id: 1,
-      name: 'React.js'
+      name: 'Laravel'
     },
     {
       id: 2,
@@ -18,14 +18,24 @@ export const navItems = [
       id: 3,
       name: 'Nest.js'
     },
+  
+  ]
+
+  export const rightLists = [
     {
-      id: 4,
-      name: 'Express.js'
+      id: 1,
+      name: 'Tailwind'
     },
     {
-      id: 5,
-      name: 'Laravel'
+      id: 2,
+      name: 'MongoDB'
     },
+    {
+      id: 3,
+      name: 'SQL'
+    },
+    
+    
   ]
   
   export const gridItems = [
