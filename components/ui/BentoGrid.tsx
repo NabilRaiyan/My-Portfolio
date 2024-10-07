@@ -1,7 +1,16 @@
+"use client";
+
 import { cn } from "@/utils/cn";
 import { BackgroundGradientAnimation } from "./GradientBG";
 import { GlobeDemo } from "./GridGlobe";
 import { leftLists, rightLists } from "@/data";
+import Image from "next/image";
+import Lottie from "react-lottie";
+import { useState } from "react";
+import animationData from '@/data/confetti.json';
+import MagicButton from "./MagicButton";
+import { IoCopyOutline } from "react-icons/io5";
+
 
 export const BentoGrid = ({
   className,
@@ -42,6 +51,15 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+
+  // copy email handle
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText('raiyanalsultan@gmail.com')
+    setCopied(true);
+  }
+
   return (
     <div
         className={cn(
@@ -58,9 +76,11 @@ export const BentoGridItem = ({
         <div className={`${id === 6 && "flex justify-center"} h-full`}>
             <div className="w-full h-full absolute">
             {img && (
-                <img
+                <Image
                 src={img}
                 alt={img}
+                width={320}
+                height={320}
                 className={cn(imgClassName, "object-cover object-center ")}
                 />
             )}
@@ -70,16 +90,16 @@ export const BentoGridItem = ({
                     } `}
             >
             {spareImg && (
-                <img
+                <Image
                 src={spareImg}
                 alt={spareImg}
-                //   width={220}
+                width={220}
+                height={220}
                 className="object-cover object-center w-full h-full"
                 />
             )}
             </div>
             {id === 6 && (
-            // add background animation , remove the p tag
             <BackgroundGradientAnimation>
                 <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
             </BackgroundGradientAnimation>
@@ -142,6 +162,29 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+
+          {
+            id === 6 && (
+              <div className="mt-5 relative">
+                  <div className={`absolute -bottom-5 right-0`}>
+                    <Lottie options={{
+                      loop: copied,
+                      autoplay: copied,
+                      animationData: animationData,
+                      rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid slice'
+                      }
+                    }} />
+                  </div>
+                  <MagicButton title={copied ? 'Email Copied' : "Copy My Email"}
+                                icon={<IoCopyOutline />}
+                                position="left"
+                                otherClasses="!bg-[#161a31]"
+                                handleClick={handleCopy}
+                   />
+              </div>
+            )
+          }
         </div>
     </div>
 
